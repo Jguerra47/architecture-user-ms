@@ -9,10 +9,10 @@ export const routes = (router: Router) => {
     router.get('/api/admin/ambassadors',  Ambassadors);
     router.put('/api/admin/users/info',  UpdateInfo);
     // admin auth
-    router.post('/api/admin/register', Register);
+    router.post('/api/user/admin/register', Register);
     router.get('/api/admin/user',  AuthenticatedUser);
     // auth
-    router.post('/api/ambassador/register', Register);
+    router.post('/api/user/ambassador/register', Register);
     router.get('/api/ambassador/user',  AuthenticatedUser);
     router.put('/api/ambassador/users/info',  UpdateInfo);
 

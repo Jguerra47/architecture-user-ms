@@ -3,12 +3,11 @@ services:
   backend:
     build: .
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - .:/app
     depends_on:
       - db
-      - redis
 
   db:
     image: mysql:8
@@ -18,11 +17,6 @@ services:
       MYSQL_DATABASE: ambassador
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - .dbdata:/var/lib/mysql
+      - /var/lib/mysql
     ports:
-      - "33066:3306"
-
-  redis:
-    image: redis
-    ports:
-      - "6379:6379"
+      - "33067:3306"
