@@ -1,5 +1,5 @@
 {
-  "name": "ambassador",
+  "name": "architecture-user-ms",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -28,7 +28,7 @@
     "redis": "^4.0.0",
     "reflect-metadata": "^0.1.13",
     "stripe": "^8.191.0",
-    "typeorm": "^0.2.41"
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
