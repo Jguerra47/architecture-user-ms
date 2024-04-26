@@ -8,13 +8,7 @@ import {createClient} from "redis";
 
 dotenv.config();
 
-export const client = createClient({
-    url: 'redis://redis:6379'
-});
-
 createConnection().then(async () => {
-    await client.connect();
-
     const app = express();
 
     app.use(cookieParser());
