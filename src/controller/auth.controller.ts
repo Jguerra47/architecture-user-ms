@@ -65,7 +65,9 @@ async function sendToAuthMs(user_id: number, password: string, email: string, is
         is_ambassador
     }
 
-    await axios.post("http://auth-ms:8000/api/auth/register", userDetailsDTO);
+    const url = process.env.AUTH_BASE_URL;
+
+    await axios.post(`http://${url}/api/auth/register`, userDetailsDTO);
 }
 
 export const AuthenticatedUser = async (req: Request, res: Response) => {
@@ -89,7 +91,9 @@ export const AuthenticatedUser = async (req: Request, res: Response) => {
         ambassador_revenue: number
     }
 
-    const orderres = await axios.get<order[]>("http://node-ambassador-ms:8000/api/admin/orders", { params: { user_id: user.id } })
+    const url = process.env.NODE_AMBASSADOR_BASE_URL;
+
+    const orderres = await axios.get<order[]>(`http://${url}/api/admin/orders`, { params: { user_id: user.id } })
 
     const orders = orderres.data;
 
