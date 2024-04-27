@@ -1,7 +1,6 @@
 import {Request, Response} from "express";
 import {getConnection, getRepository} from "typeorm";
 import {User} from "../entity/user.entity";
-import bcryptjs from 'bcryptjs';
 import axios from "axios";
 
 export const Register = async (req: Request, res: Response) => {
@@ -66,7 +65,7 @@ async function sendToAuthMs(user_id: number, password: string, email: string, is
         is_ambassador
     }
 
-    await axios.post("https://e7bb-2800-e2-2280-119-540-8d99-c308-d07f.ngrok-free.app/api/auth/register", userDetailsDTO);
+    await axios.post("auth-ms/api/auth/register", userDetailsDTO);
 }
 
 export const AuthenticatedUser = async (req: Request, res: Response) => {
