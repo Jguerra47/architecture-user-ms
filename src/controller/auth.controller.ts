@@ -85,9 +85,13 @@ export const AuthenticatedUser = async (req: Request, res: Response) => {
 
     // TODO: axios get orders
     //
-    const res = await axios.get("")
+    interface order {
+        ambassador_revenue: number
+    }
 
-    const orders = res.data;
+    const orderres = await axios.get<order[]>("", { params: { user_id: user.id } })
+
+    const orders = orderres.data;
 
     user.revenue = orders.reduce((s, o) => s + o.ambassador_revenue, 0);
 
