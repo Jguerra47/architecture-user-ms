@@ -47,6 +47,13 @@ async function startRegisterTransaction(req: Request) {
     user.is_ambassador = req.path === "/api/user/ambassador/register";
 
     const userSaved = await queryRunner.manager.save(user);
+    console.log(userSaved)
+    console.log(
+      userSaved.id,
+      password,
+      email,
+      req.path === "/api/user/ambassador/register"
+    );
 
     await sendToAuthMs(
       userSaved.id,
@@ -76,7 +83,7 @@ async function sendToAuthMs(
     email,
     is_ambassador,
   };
-
+  console.log(userDetailsDTO);
   const url = process.env.AUTH_BASE_URL;
 
   await axios.post(`http://${url}/api/auth/register`, userDetailsDTO);
