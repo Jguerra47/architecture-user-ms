@@ -85,8 +85,12 @@ export const AuthenticatedUser = async (req: Request, res: Response) => {
     // });
 
     // TODO: axios get orders
+    //
+    const res = await axios.get("")
 
-    // user.revenue = orders.reduce((s, o) => s + o.ambassador_revenue, 0);
+    const orders = res.data;
+
+    user.revenue = orders.reduce((s, o) => s + o.ambassador_revenue, 0);
 
     res.send(user);
 }
