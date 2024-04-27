@@ -65,7 +65,7 @@ async function sendToAuthMs(user_id: number, password: string, email: string, is
         is_ambassador
     }
 
-    await axios.post("https://auth-ms:8000/api/auth/register", userDetailsDTO);
+    await axios.post("http://auth-ms:8000/api/auth/register", userDetailsDTO);
 }
 
 export const AuthenticatedUser = async (req: Request, res: Response) => {
