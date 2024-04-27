@@ -13,7 +13,12 @@ createConnection().then(async () => {
   app.use(cookieParser());
   app.use(express.json());
   app.use(
-    cors()
+    cors(
+        {
+            credentials: true,
+            origin: ["https://architecture-react-ambassador.vercel.app"]
+        }
+    )
   );
 
   routes(app);
