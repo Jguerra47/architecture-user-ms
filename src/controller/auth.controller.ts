@@ -89,7 +89,7 @@ export const AuthenticatedUser = async (req: Request, res: Response) => {
         ambassador_revenue: number
     }
 
-    const orderres = await axios.get<order[]>("", { params: { user_id: user.id } })
+    const orderres = await axios.get<order[]>("http://node-ambassador-ms:8000/api/admin/orders", { params: { user_id: user.id } })
 
     const orders = orderres.data;
 
